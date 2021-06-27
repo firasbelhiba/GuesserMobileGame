@@ -10,11 +10,13 @@ export default function App() {
     <View style={styles.container}>
       <Header title={'Guess a Number'} />
       <StartGameScreen />
+
       <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+  }
 });
