@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View, TextInput, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 import Card from '../components/Card';
 import Input from '../components/Input';
+import NumberContainer from '../components/NumberContainer';
 import Colors from '../constants/colors'
 
 
@@ -27,12 +28,21 @@ const StartGameScreen = (props) => {
         setConfirmed(true)
         setSelectedNumber(chosenNumber)
         setEnteredValue('')
+        Keyboard.dismiss()
     }
 
     let confirmedOutput
 
     if (confirmed) {
-        confirmedOutput = (<Text>Chosen Number : {selectedNumber}</Text>)
+        confirmedOutput = (
+            <Card style={styles.chosenNumberContainer}>
+                <Text>You selected:</Text>
+                <NumberContainer>
+                    {selectedNumber}
+                </NumberContainer>
+                <Button title='Start the game' color={Colors.secondary} />
+            </Card>
+        )
     }
     return (
         <TouchableWithoutFeedback onPress={
@@ -95,6 +105,11 @@ const styles = StyleSheet.create({
     input: {
         width: 80,
         textAlign: 'center'
+    },
+    chosenNumberContainer: {
+        marginTop: 20,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 
