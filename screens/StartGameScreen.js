@@ -36,7 +36,18 @@ const styles = StyleSheet.create({
     inputContainer: {
         width: 300,
         maxWidth: '80%',
-        alignItems: 'center'
+        alignItems: 'center',
+        // The shadow props only work on IOS
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 6,
+        shadowOpacity: 0.26,
+        // To acitvate this add we have to add this prop which works only on android
+        elevation: 10,
+        backgroundColor: 'white',
+        padding: 20,
+        borderRadius: 10,
+        marginTop: 10
     },
     title: {
         fontSize: 20,
